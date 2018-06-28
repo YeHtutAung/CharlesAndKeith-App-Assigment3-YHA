@@ -1,4 +1,4 @@
-package com.assignment.ideapro.charlesandkeith_app_assignment;
+package com.assignment.ideapro.assignment;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
