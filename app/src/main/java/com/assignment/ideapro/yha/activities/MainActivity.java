@@ -1,31 +1,35 @@
-package com.assignment.ideapro.yha;
+package com.assignment.ideapro.yha.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import com.assignment.ideapro.yha.R;
+import com.assignment.ideapro.yha.adapters.NewProductAdapter;
+import com.assignment.ideapro.yha.data.vos.NewProductVO;
+import com.assignment.ideapro.yha.delegates.INewProductDelegate;
+
+public class MainActivity extends AppCompatActivity implements INewProductDelegate{
+
+    private NewProductAdapter mNewProductAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        RecyclerView rvNewProduct = findViewById(R.id.rv_new_product);
+        mNewProductAdapter = new NewProductAdapter(this);
+        rvNewProduct.setAdapter(mNewProductAdapter);
+        rvNewProduct.setLayoutManager(new GridLayoutManager(this, 2));
     }
 
     @Override
@@ -48,5 +52,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onTapImage(NewProductVO talk) {
+        Intent intent = new Intent(getApplicationContext(), NewProductDetailsActivity.class);
+        startActivity(intent);
     }
 }

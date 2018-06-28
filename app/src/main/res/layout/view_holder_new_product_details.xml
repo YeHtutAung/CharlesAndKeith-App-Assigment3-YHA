@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_publication"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_shoes_item1" />
+
+    <TextView
+        android:id="@+id/tv_caption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_publication"
+        android:text="POINTED FLAT MULES"
+        android:gravity="center"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_regular" />
+
+    <TextView
+        android:id="@+id/tv_notify"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:layout_marginRight="@dimen/margin_medium_3"
+        android:text="+ INFO"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@color/primary"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/text_regular_2x" />
+
+</RelativeLayout>
