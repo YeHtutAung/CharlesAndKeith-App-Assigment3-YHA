@@ -1,4 +1,4 @@
-package com.assignment.ideapro.assignment;
+package com.assignment.ideapro.yha;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

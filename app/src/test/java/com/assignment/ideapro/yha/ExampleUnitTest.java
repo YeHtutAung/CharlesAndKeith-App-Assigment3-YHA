@@ -1,4 +1,4 @@
-package com.assignment.ideapro.assignment;
+package com.assignment.ideapro.yha;
 
 import org.junit.Test;
 
