@@ -6,15 +6,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.assignment.ideapro.yha.R;
+import com.assignment.ideapro.yha.data.vos.NewProductVO;
 import com.assignment.ideapro.yha.delegates.INewProductDelegate;
 import com.assignment.ideapro.yha.viewholders.NewProductViewHolder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewProductAdapter extends RecyclerView.Adapter<NewProductViewHolder> {
 
     private INewProductDelegate mDelegate;
+    private List<NewProductVO> mNewProductList;
 
     public NewProductAdapter(INewProductDelegate mDelegate) {
         this.mDelegate = mDelegate;
+        this.mNewProductList = new ArrayList<>();
     }
 
     @NonNull
@@ -28,11 +34,16 @@ public class NewProductAdapter extends RecyclerView.Adapter<NewProductViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NewProductViewHolder holder, int position) {
-
+        holder.setNewProduct(mNewProductList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 6;
+        return mNewProductList.size();
+    }
+
+    public void setNewProductList(List<NewProductVO> newProductVOList) {
+        this.mNewProductList = newProductVOList;
+        notifyDataSetChanged();
     }
 }

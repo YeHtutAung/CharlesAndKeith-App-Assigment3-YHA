@@ -4,30 +4,28 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.assignment.ideapro.yha.R;
 import com.assignment.ideapro.yha.data.vos.NewProductVO;
-import com.assignment.ideapro.yha.delegates.INewProductDelegate;
+import com.assignment.ideapro.yha.delegates.INewProductDetailsDelegate;
 import com.bumptech.glide.Glide;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NewProductViewHolder extends RecyclerView.ViewHolder {
+public class NewProductDetailsViewHodler extends RecyclerView.ViewHolder {
 
-    private INewProductDelegate mDelegate;
+    private INewProductDetailsDelegate mDelegate;
     private NewProductVO mNewProduct;
 
-    @BindView(R.id.iv_publication)
-    ImageView ivPublication;
+    @BindView(R.id.iv_details_publication)
+    ImageView ivDetailsPublication;
 
-    @BindView(R.id.tv_caption)
-    TextView tvCaption;
+    @BindView(R.id.tv_details_caption)
+    TextView tvDetailsCaption;
 
-    public NewProductViewHolder(View itemView, INewProductDelegate newProductDelegate) {
+    public NewProductDetailsViewHodler(View itemView , INewProductDetailsDelegate iNewProductDetailsDelegate) {
         super(itemView);
         ButterKnife.bind(this, itemView);
-        this.mDelegate = newProductDelegate;
+        this.mDelegate = iNewProductDetailsDelegate;
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,13 +34,13 @@ public class NewProductViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public void setNewProduct(NewProductVO newProduct) {
+    public void setNewProductDetails(NewProductVO newProduct) {
         this.mNewProduct = newProduct;
         if (newProduct != null) {
             Glide.with(itemView.getContext())
                     .load(newProduct.getProductImage())
-                    .into(ivPublication);
-            tvCaption.setText(newProduct.getProductTitle());
+                    .into(ivDetailsPublication);
+            tvDetailsCaption.setText(newProduct.getProductTitle());
         }
     }
 }

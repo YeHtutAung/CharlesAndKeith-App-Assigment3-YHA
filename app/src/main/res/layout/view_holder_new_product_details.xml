@@ -4,9 +4,9 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/iv_publication"
+        android:id="@+id/iv_details_publication"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="400dp"
         android:layout_marginLeft="@dimen/margin_medium"
         android:layout_marginRight="@dimen/margin_medium"
         android:layout_marginTop="@dimen/margin_medium"
@@ -14,10 +14,10 @@
         android:src="@drawable/ic_shoes_item1" />
 
     <TextView
-        android:id="@+id/tv_caption"
+        android:id="@+id/tv_details_caption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_publication"
+        android:layout_below="@id/iv_details_publication"
         android:text="POINTED FLAT MULES"
         android:gravity="center"
         android:textColor="@color/secondary_text"
