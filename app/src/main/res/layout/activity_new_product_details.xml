@@ -25,7 +25,7 @@
                 android:textSize="@dimen/text_heading_1x" />
 
             <ImageView
-                android:id="@+id/btn_drag"
+                android:id="@+id/iv_drag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"

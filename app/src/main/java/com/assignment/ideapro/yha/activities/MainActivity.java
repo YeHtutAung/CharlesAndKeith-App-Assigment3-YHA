@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.assignment.ideapro.yha.R;
 import com.assignment.ideapro.yha.adapters.NewProductAdapter;
 import com.assignment.ideapro.yha.data.models.NewProductModel;
@@ -19,7 +18,6 @@ import com.assignment.ideapro.yha.utils.NewProductConstant;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -32,8 +30,14 @@ public class MainActivity extends BaseActivity implements INewProductDelegate{
 
     @BindView(R.id.iv_single_square)
     ImageView ivSingleView;
+
     @BindView(R.id.iv_double_square)
     ImageView ivDoubleView;
+
+    @BindView(R.id.v_single_square)
+    View vSingleViewSquare;
+    @BindView(R.id.v_double_square)
+    View vDoubleViewSquare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,11 +53,15 @@ public class MainActivity extends BaseActivity implements INewProductDelegate{
         rvNewProduct.setLayoutManager(new GridLayoutManager(this, 2));
 
         ivSingleView.setOnClickListener(v -> {
-            rvNewProduct.setLayoutManager(new GridLayoutManager(this, 1));
+            rvNewProduct.setLayoutManager(new GridLayoutManager(v.getContext(), 1));
+            vSingleViewSquare.setVisibility(View.VISIBLE);
+            vDoubleViewSquare.setVisibility(View.GONE);
         });
 
         ivDoubleView.setOnClickListener(v -> {
-            rvNewProduct.setLayoutManager(new GridLayoutManager(this, 2));
+            rvNewProduct.setLayoutManager(new GridLayoutManager(v.getContext(), 2));
+            vDoubleViewSquare.setVisibility(View.VISIBLE);
+            vSingleViewSquare.setVisibility(View.GONE);
         });
 
         NewProductModel.getIObjectInstance().loadNewProductList();
